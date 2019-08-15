@@ -108,6 +108,22 @@
     <property name="title">
      <string>F&amp;ilters</string>
     </property>
+    <widget class="QMenu" name="menuRGB">
+     <property name="title">
+      <string>RGB</string>
+     </property>
+     <addaction name="separator"/>
+    </widget>
+    <addaction name="actionMosaico"/>
+    <addaction name="actionEscala_de_Grises"/>
+    <addaction name="actionInverso"/>
+    <addaction name="actionAlto_Contraste"/>
+    <addaction name="actionBrillo"/>
+    <addaction name="menuRGB"/>
+    <addaction name="separator"/>
+    <addaction name="actionRed"/>
+    <addaction name="actionGreen"/>
+    <addaction name="actionBlue"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuFilters"/>
@@ -144,6 +160,46 @@
   <action name="actionSave_Image">
    <property name="text">
     <string>&amp;Save Image</string>
+   </property>
+  </action>
+  <action name="actionMosaico">
+   <property name="text">
+    <string>Mosaico</string>
+   </property>
+  </action>
+  <action name="actionEscala_de_Grises">
+   <property name="text">
+    <string>Escala de Grises</string>
+   </property>
+  </action>
+  <action name="actionInverso">
+   <property name="text">
+    <string>Inverso</string>
+   </property>
+  </action>
+  <action name="actionAlto_Contraste">
+   <property name="text">
+    <string>Alto Contraste</string>
+   </property>
+  </action>
+  <action name="actionBrillo">
+   <property name="text">
+    <string>Brillo</string>
+   </property>
+  </action>
+  <action name="actionRed">
+   <property name="text">
+    <string>Red</string>
+   </property>
+  </action>
+  <action name="actionGreen">
+   <property name="text">
+    <string>Green</string>
+   </property>
+  </action>
+  <action name="actionBlue">
+   <property name="text">
+    <string>Blue</string>
    </property>
   </action>
  </widget>
