@@ -1,4 +1,4 @@
-# Digital Images Procesing*
+# Digital Images Procesing
 Respository for the homeworks for the class Procesador Digital de Imagenes. 
 
 This project was created using
