@@ -18,10 +18,20 @@ To do:
 * Inverse
 * Save Image function. 
 
-How to use:
+## How to use:
 
-Just compile and run
+Just compile 
 
-Push the button ''Load Image'' and select the image you want to test or in the Main Menu 'Load Image'. In the 'Filters' menu select the one you want to apply. 
+`$ qmake first_project.pro`
+
+run
+
+`$ make`
+
+and then run the executable
+
+`$ ./first_project`
+
+Push the button `Load Image` and select the image you want to test or in the **Main Menu** `Load Image`. In the `Filter` menu select the one you want to apply. 
 
 
