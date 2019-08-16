@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <brigthnes_dialog.h>
 
 namespace Ui {
 class MainWindow;
@@ -29,8 +30,11 @@ private slots:
 
     void on_actionBlue_triggered();
 
+    void on_actionBrillo_triggered();
+
 private:
     Ui::MainWindow *ui;
+    Brigthnes_Dialog *brightnes_dial;
 };
 
 #endif // MAINWINDOW_H

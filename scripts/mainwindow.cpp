@@ -9,6 +9,7 @@
 #include <QTextStream>
 #include <typeinfo>
 #include <unistd.h>
+#include "brigthnes_dialog.cpp"
 
 QTextStream out(stdout);
 
@@ -270,5 +271,15 @@ void MainWindow::on_actionBlue_triggered()
         }
 
     ui->label_pic_2->setPixmap(QPixmap::fromImage(gray).scaled(ui->label_pic_2->width(),ui->label_pic_2->height(),Qt::KeepAspectRatio));
+
+}
+
+void MainWindow::on_actionBrillo_triggered()
+{
+    //Brigthnes_Dialog brightnes_dial;
+    //brightnes_dial.setModal(true);
+    //brightnes_dial.exec()
+    brightnes_dial = new Brigthnes_Dialog(this);
+    brightnes_dial->show();
 
 }

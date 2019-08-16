@@ -13,8 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    brigthnes_dialog.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    brigthnes_dialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    brigthnes_dialog.ui
