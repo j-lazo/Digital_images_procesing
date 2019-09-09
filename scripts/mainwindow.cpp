@@ -5,14 +5,13 @@
 #include <QImage>
 #include <QFileDialog>
 #include <iostream>
-#include<QDebug>
+#include <QDebug>
 #include <QTextStream>
 #include <typeinfo>
 #include <unistd.h>
 #include "brigthnes_dialog.cpp"
 
 QTextStream out(stdout);
-
 QImage image;
 QString name_image;
 
@@ -32,6 +31,7 @@ MainWindow::~MainWindow()
 
 
 
+// Load the Image
 void MainWindow::on_pushButton_clicked()
 {
     QString file_name = QFileDialog::getOpenFileName(this, tr("Choose the Image to Load"), "", tr("Images(*.png *.jpg *.jpeg *.PNG* *.JPG* *.JPEG)"));
@@ -49,6 +49,7 @@ void MainWindow::on_pushButton_clicked()
         int width_2 = ui->label_pic_2->width();
         int height_2 = ui->label_pic_2->height();
 
+        // Set a pix map for Image 1 and Image 2
         ui->label_pic_1->setPixmap(QPixmap::fromImage(image).scaled(width_1,height_1,Qt::KeepAspectRatio));
         ui->label_pic_2->setPixmap(QPixmap::fromImage(image).scaled(width_2,height_2,Qt::KeepAspectRatio));
 
@@ -99,17 +100,19 @@ void MainWindow::on_actionLoad_Image_triggered()
 
 }
 
+// Grayscale filter
+
 void MainWindow::on_actionEscala_de_Grises_triggered()
 {
-
+    // Read the Image
 
     QImage gray = image;
-    qDebug() << "you just clicked ok";
     int image_width = gray.width();
     int image_height = gray.height();
     int img_dept = gray.depth();
     out <<img_dept <<endl;
 
+    // Set the image on label 1
     out << ui->label_pic_2->width() << ui->label_pic_2->height()<< endl;
     out << image_width << ',' << image_height<<endl;
 
@@ -152,9 +155,24 @@ void MainWindow::on_actionEscala_de_Grises_triggered()
 
 }
 
-void MainWindow::on_actionRed_triggered()
+
+// Green  Filter
+void MainWindow::on_actionGreen_triggered()
+{
+}
+
+
+// Blue filter
+void MainWindow::on_actionBlue_triggered()
 {
 
+}
+
+
+// Apply Red Filter
+
+void MainWindow::on_actionRed_2_triggered()
+{
     QImage gray = image;
     qDebug() << "you just clicked ok";
     int image_width = gray.width();
@@ -193,7 +211,7 @@ void MainWindow::on_actionRed_triggered()
     ui->label_pic_2->setPixmap(QPixmap::fromImage(gray).scaled(ui->label_pic_2->width(),ui->label_pic_2->height(),Qt::KeepAspectRatio));
 }
 
-void MainWindow::on_actionGreen_triggered()
+void MainWindow::on_actionGreen_2_triggered()
 {
     QImage gray = image;
     qDebug() << "you just clicked ok";
@@ -231,9 +249,12 @@ void MainWindow::on_actionGreen_triggered()
         }
 
     ui->label_pic_2->setPixmap(QPixmap::fromImage(gray).scaled(ui->label_pic_2->width(),ui->label_pic_2->height(),Qt::KeepAspectRatio));
+
 }
 
-void MainWindow::on_actionBlue_triggered()
+// Apply Blue Filter
+
+void MainWindow::on_actionBlue_2_triggered()
 {
     QImage gray = image;
     qDebug() << "you just clicked ok";
@@ -245,9 +266,9 @@ void MainWindow::on_actionBlue_triggered()
     out << ui->label_pic_2->width() << ui->label_pic_2->height()<< endl;
     out << image_width << ',' << image_height<<endl;
 
-    QImage gris(img_dept, img_dept, QImage::Format_Mono);
-                //Format_RGB888);
 
+
+    QImage gris(img_dept, img_dept, QImage::Format_Mono);
     out<< gris.width() << gris.height() <<endl;
 
     //int planes=gray.bitPlaneCount();
@@ -271,15 +292,28 @@ void MainWindow::on_actionBlue_triggered()
         }
 
     ui->label_pic_2->setPixmap(QPixmap::fromImage(gray).scaled(ui->label_pic_2->width(),ui->label_pic_2->height(),Qt::KeepAspectRatio));
-
 }
+
+
+void MainWindow::receiveMessage(const QString &msg)
+{
+    QMessageBox::information(this, "Message", msg);
+}
+
+// Call the Brillo Widget
 
 void MainWindow::on_actionBrillo_triggered()
 {
-    //Brigthnes_Dialog brightnes_dial;
-    //brightnes_dial.setModal(true);
-    //brightnes_dial.exec()
     brightnes_dial = new Brigthnes_Dialog(this);
     brightnes_dial->show();
+
+
+
+}
+
+void MainWindow::change_brightnes()
+{
+    QImage gray = image;
+
 
 }

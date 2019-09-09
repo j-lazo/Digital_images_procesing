@@ -1,56 +1,60 @@
 #include "brigthnes_dialog.h"
 #include "ui_brigthnes_dialog.h"
 #include "mainwindow.h"
+#include <unistd.h>
+
+int brillo = 0;
 
 Brigthnes_Dialog::Brigthnes_Dialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Brigthnes_Dialog)
+
 {
     ui->setupUi(this);
+
+    // Define the minimum and maximum values of the Horizontal Sliders
+    ui->horizontalSlider->setMinimum(0);
+    ui->horizontalSlider->setMaximum(101);
+
+    // Definet he minimum and maximum values of the SpinBox
+    ui->doubleSpinBox->setMinimum(0);
+    ui->doubleSpinBox->setMaximum(101);
+
+    // Connects the value of the horizontaSlider and the SpinBox
+    connect(ui->horizontalSlider,SIGNAL(valueChanged(float)),
+                                        ui->buttonBox,SLOT(setValue(float)));
+
 }
 
+
+void Brigthnes_Dialog::on_horizontalSlider_sliderMoved(int position)
+{
+    // change the value of the spinBox according to the Slider
+    ui->doubleSpinBox->setValue(ui->horizontalSlider->value());
+    brillo = ui->horizontalSlider->value();
+
+    // connect the signal 'clicked' to the 'button Clicked' signal
+    connect(ui->horizontalSlider,SIGNAL(valueChanged(float)),
+                                        this,SLOT(on_doubleSpinBox_valueChanged));
+
+    // connect the child's "Send Message Signal" to the parent's receiveMessage slot
+    //connect(this, SIGNAL(sendMessage(QString)),parent, SLOT(receiveMessage(QString)));
+    //connect(this, SIGNAL(sendMessage(QString)), parent, SLOT(receiveMessage(QString)));
+
+}
+
+
+void Brigthnes_Dialog::on_doubleSpinBox_valueChanged(double arg1)
+{
+    // change the value of the Slider according to the SpinBox
+    ui->horizontalSlider->setValue(ui->doubleSpinBox->value());
+    brillo = ui->doubleSpinBox->value();
+    emit sendMessage("This is a message sent by Batman");
+}
+
+
+// close the brightness dialog
 Brigthnes_Dialog::~Brigthnes_Dialog()
 {
     delete ui;
 }
-
-void Brigthnes_Dialog::on_horizontalSlider_sliderMoved(int position)
-{
-    /*QImage gray = image;
-    qDebug() << "you just clicked ok";
-    int image_width = gray.width();
-    int image_height = gray.height();
-    int img_dept = gray.depth();
-    //out <<img_dept <<endl;
-
-    //out << ui->label_pic_2->width() << ui->label_pic_2->height()<< endl;
-    //out << image_width << ',' << image_height<<endl;
-
-    QImage gris(img_dept, img_dept, QImage::Format_Mono);
-                //Format_RGB888);
-
-    //out<< gris.width() << gris.height() <<endl;
-
-    //int planes=gray.bitPlaneCount();
-    //out <<planes<<endl;
-
-    //out<< image_width << "," << image_height <<endl;
-
-    for(int row=0; row< gray.width(); row++)
-        {
-        for (int col=0; col< gray.height(); col++)
-            {
-
-            QColor clrCurrent(gray.pixel( row, col ) );
-
-            int value, average;
-            average = (clrCurrent.red() + clrCurrent.green() + clrCurrent.blue())/3;
-            //average = (clrCurrent.red()*0.3 + clrCurrent.green()*0.59 + clrCurrent.blue()*0.11);
-            value = QColor(0,0,average).rgba();
-            gray.setPixel(row,col, value);
-            }
-        }
-    MainWindow.ui->label_pic_2->setPixmap(QPixmap::fromImage(gray).scaled(ui->label_pic_2->width(),ui->label_pic_2->height(),Qt::KeepAspectRatio));
-    */
-}
-

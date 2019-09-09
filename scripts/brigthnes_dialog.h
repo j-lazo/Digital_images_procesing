@@ -2,6 +2,7 @@
 #define BRIGTHNES_DIALOG_H
 
 #include <QDialog>
+#include <QMdiSubWindow>
 
 namespace Ui {
 class Brigthnes_Dialog;
@@ -15,11 +16,16 @@ public:
     explicit Brigthnes_Dialog(QWidget *parent = 0);
     ~Brigthnes_Dialog();
 
-private slots:
+public slots:
     void on_horizontalSlider_sliderMoved(int position);
 
-private:
+    void on_doubleSpinBox_valueChanged(double arg1);
+
+public:
     Ui::Brigthnes_Dialog *ui;
+
+signals:
+    void sendMessage(const QString &smg);
 };
 
 #endif // BRIGTHNES_DIALOG_H

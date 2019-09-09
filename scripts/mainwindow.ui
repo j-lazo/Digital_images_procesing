@@ -110,9 +110,12 @@
     </property>
     <widget class="QMenu" name="menuRGB">
      <property name="title">
-      <string>RGB</string>
+      <string>&amp;RGB</string>
      </property>
      <addaction name="separator"/>
+     <addaction name="actionRed_2"/>
+     <addaction name="actionGreen_2"/>
+     <addaction name="actionBlue_2"/>
     </widget>
     <addaction name="actionMosaico"/>
     <addaction name="actionEscala_de_Grises"/>
@@ -121,9 +124,6 @@
     <addaction name="actionBrillo"/>
     <addaction name="menuRGB"/>
     <addaction name="separator"/>
-    <addaction name="actionRed"/>
-    <addaction name="actionGreen"/>
-    <addaction name="actionBlue"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuFilters"/>
@@ -164,40 +164,55 @@
   </action>
   <action name="actionMosaico">
    <property name="text">
-    <string>Mosaico</string>
+    <string>&amp;Mosaico</string>
    </property>
   </action>
   <action name="actionEscala_de_Grises">
    <property name="text">
-    <string>Escala de Grises</string>
+    <string>&amp;Escala de Grises</string>
    </property>
   </action>
   <action name="actionInverso">
    <property name="text">
-    <string>Inverso</string>
+    <string>&amp;Inverso</string>
    </property>
   </action>
   <action name="actionAlto_Contraste">
    <property name="text">
-    <string>Alto Contraste</string>
+    <string>&amp;Alto Contraste</string>
    </property>
   </action>
   <action name="actionBrillo">
    <property name="text">
-    <string>Brillo</string>
+    <string>&amp;Brillo</string>
    </property>
   </action>
   <action name="actionRed">
    <property name="text">
-    <string>Red</string>
+    <string>Re&amp;d</string>
    </property>
   </action>
   <action name="actionGreen">
    <property name="text">
-    <string>Green</string>
+    <string>&amp;Green</string>
    </property>
   </action>
   <action name="actionBlue">
+   <property name="text">
+    <string>B&amp;lue</string>
+   </property>
+  </action>
+  <action name="actionRed_2">
+   <property name="text">
+    <string>Red</string>
+   </property>
+  </action>
+  <action name="actionGreen_2">
+   <property name="text">
+    <string>Green</string>
+   </property>
+  </action>
+  <action name="actionBlue_2">
    <property name="text">
     <string>Blue</string>
    </property>

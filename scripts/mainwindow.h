@@ -32,8 +32,20 @@ private slots:
 
     void on_actionBrillo_triggered();
 
+    void on_actionRed_2_triggered();
+
+    void on_actionGreen_2_triggered();
+
+    void on_actionBlue_2_triggered();
+
+    void change_brightnes();
+
+public slots:
+    void receiveMessage(const QString &smg);
+
 private:
     Ui::MainWindow *ui;
+public:
     Brigthnes_Dialog *brightnes_dial;
 };
 
