@@ -19,13 +19,17 @@ public:
 public slots:
     void on_horizontalSlider_sliderMoved(int position);
 
-    void on_doubleSpinBox_valueChanged(double arg1);
 
 public:
     Ui::Brigthnes_Dialog *ui;
 
+    void on_doubleSpinBox_valueChanged(double arg1);
+
+
 signals:
-    void sendMessage(const QString &smg);
+    void sendMessage(int);
+private slots:
+    void on_doubleSpinBox_valueChanged(const QString &arg1);
 };
 
 #endif // BRIGTHNES_DIALOG_H

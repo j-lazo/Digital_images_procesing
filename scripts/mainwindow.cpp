@@ -168,6 +168,11 @@ void MainWindow::on_actionBlue_triggered()
 
 }
 
+void MainWindow::on_actionRed_triggered()
+{
+
+}
+
 
 // Apply Red Filter
 
@@ -295,18 +300,17 @@ void MainWindow::on_actionBlue_2_triggered()
 }
 
 
-void MainWindow::receiveMessage(const QString &msg)
-{
-    QMessageBox::information(this, "Message", msg);
-}
 
 // Call the Brillo Widget
 
 void MainWindow::on_actionBrillo_triggered()
 {
+    // set-up the brightness dialog window
     brightnes_dial = new Brigthnes_Dialog(this);
     brightnes_dial->show();
 
+    //connect brightness dial with MainWindow
+    connect(brightnes_dial,SIGNAL(sendMessage(int)),this,SLOT(receiveMessage(int)));
 
 
 }
@@ -315,5 +319,17 @@ void MainWindow::change_brightnes()
 {
     QImage gray = image;
 
+}
+
+void MainWindow:: edit_image()
+{
 
 }
+
+void MainWindow::receiveMessage(int valor)
+{
+    out << int(valor) << endl;
+
+}
+
+

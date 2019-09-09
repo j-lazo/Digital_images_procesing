@@ -38,10 +38,15 @@ private slots:
 
     void on_actionBlue_2_triggered();
 
+public slots:
+
+    void receiveMessage(int valor);
+
     void change_brightnes();
 
-public slots:
-    void receiveMessage(const QString &smg);
+    void edit_image();
+
+
 
 private:
     Ui::MainWindow *ui;

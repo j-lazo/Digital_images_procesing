@@ -21,40 +21,42 @@ Brigthnes_Dialog::Brigthnes_Dialog(QWidget *parent) :
     ui->doubleSpinBox->setMaximum(101);
 
     // Connects the value of the horizontaSlider and the SpinBox
-    connect(ui->horizontalSlider,SIGNAL(valueChanged(float)),
+     connect(ui->horizontalSlider,SIGNAL(valueChanged(float)),
                                         ui->buttonBox,SLOT(setValue(float)));
+
+
+    // connect the signal 'clicked' to the 'button Clicked' signal
+    //connect(ui->doubleSpinBox, SIGNAL(valueChanged(QString)), ui->horizontalSlider,SLOT(setValue(float)));
+
 
 }
 
-
+// change the value on the Slider
 void Brigthnes_Dialog::on_horizontalSlider_sliderMoved(int position)
 {
     // change the value of the spinBox according to the Slider
     ui->doubleSpinBox->setValue(ui->horizontalSlider->value());
-    brillo = ui->horizontalSlider->value();
 
-    // connect the signal 'clicked' to the 'button Clicked' signal
-    connect(ui->horizontalSlider,SIGNAL(valueChanged(float)),
-                                        this,SLOT(on_doubleSpinBox_valueChanged));
-
-    // connect the child's "Send Message Signal" to the parent's receiveMessage slot
-    //connect(this, SIGNAL(sendMessage(QString)),parent, SLOT(receiveMessage(QString)));
-    //connect(this, SIGNAL(sendMessage(QString)), parent, SLOT(receiveMessage(QString)));
+    // emit the value of the Slider
+    emit sendMessage(ui->doubleSpinBox->value());
 
 }
 
-
-void Brigthnes_Dialog::on_doubleSpinBox_valueChanged(double arg1)
+// change the value on the SpinBox
+void Brigthnes_Dialog::on_doubleSpinBox_valueChanged(const QString &arg1)
 {
     // change the value of the Slider according to the SpinBox
     ui->horizontalSlider->setValue(ui->doubleSpinBox->value());
-    brillo = ui->doubleSpinBox->value();
-    emit sendMessage("This is a message sent by Batman");
+
+    // emit the value of the SpinBox
+    emit sendMessage(ui->doubleSpinBox->value());
 }
 
 
 // close the brightness dialog
 Brigthnes_Dialog::~Brigthnes_Dialog()
 {
+
+    emit sendMessage(ui->doubleSpinBox->value());
     delete ui;
 }
