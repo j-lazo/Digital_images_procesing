@@ -10,12 +10,13 @@ The project cotains so far the next functions:
 
 * Filters R,G,B
 * Grayscale filter
+* Contrast
+* Birgthness
+* High contrast
+* Inverse contrast
 
 To do:
 
-* Birgthness
-* High contrast
-* Inverse
 * Save Image function. 
 
 ## How to use:
