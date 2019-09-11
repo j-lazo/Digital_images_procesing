@@ -117,13 +117,18 @@
      <addaction name="actionGreen_2"/>
      <addaction name="actionBlue_2"/>
     </widget>
+    <widget class="QMenu" name="menuAlto_Contraste_2">
+     <property name="title">
+      <string>Alto Contraste</string>
+     </property>
+     <addaction name="actionDefault"/>
+     <addaction name="actionCustom"/>
+    </widget>
     <addaction name="actionMosaico"/>
     <addaction name="actionEscala_de_Grises"/>
-    <addaction name="actionInverso"/>
-    <addaction name="actionAlto_Contraste"/>
     <addaction name="actionBrillo"/>
     <addaction name="menuRGB"/>
-    <addaction name="separator"/>
+    <addaction name="menuAlto_Contraste_2"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuFilters"/>
@@ -177,14 +182,9 @@
     <string>&amp;Inverso</string>
    </property>
   </action>
-  <action name="actionAlto_Contraste">
-   <property name="text">
-    <string>&amp;Alto Contraste</string>
-   </property>
-  </action>
   <action name="actionBrillo">
    <property name="text">
-    <string>&amp;Brillo</string>
+    <string>&amp;Brillo/Contraste</string>
    </property>
   </action>
   <action name="actionRed">
@@ -204,17 +204,27 @@
   </action>
   <action name="actionRed_2">
    <property name="text">
-    <string>Red</string>
+    <string>&amp;Red</string>
    </property>
   </action>
   <action name="actionGreen_2">
    <property name="text">
-    <string>Green</string>
+    <string>&amp;Green</string>
    </property>
   </action>
   <action name="actionBlue_2">
    <property name="text">
-    <string>Blue</string>
+    <string>&amp;Blue</string>
+   </property>
+  </action>
+  <action name="actionDefault">
+   <property name="text">
+    <string>Default</string>
+   </property>
+  </action>
+  <action name="actionCustom">
+   <property name="text">
+    <string>Custom</string>
    </property>
   </action>
  </widget>

@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <brigthnes_dialog.h>
+#include "brigthnes_dialog.h"
+#include "high_contrast_window.h"
 
 namespace Ui {
 class MainWindow;
@@ -38,13 +39,19 @@ private slots:
 
     void on_actionBlue_2_triggered();
 
+    void on_actionDefault_triggered();
+
+    void on_actionCustom_triggered();
+
 public slots:
 
-    void receiveMessage(int valor);
+    int receiveMessage(int brightness_value);
 
-    void change_brightnes();
+    void Change_Contrast(float contrast_value);
 
-    void edit_image();
+    void High_Contrast(int value_of_contrast);
+
+    void edit_image(QImage image);
 
 
 
@@ -52,6 +59,7 @@ private:
     Ui::MainWindow *ui;
 public:
     Brigthnes_Dialog *brightnes_dial;
+    High_contrast_window *high_contrast_window;
 };
 
 #endif // MAINWINDOW_H
