@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "brigthnes_dialog.h"
 #include "high_contrast_window.h"
+#include "blur_dialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -43,16 +44,23 @@ private slots:
 
     void on_actionCustom_triggered();
 
+    void on_actionBlur_triggered();
+
 public slots:
 
     int receiveMessage(int brightness_value);
 
     void Change_Contrast(float contrast_value);
 
-    void High_Contrast(int value_of_contrast);
+    void High_Contrast(int value_of_contrast, bool inverse);
 
     void edit_image(QImage image);
 
+    void Blur_Image(QString type_of_blur, int value_1, int value_2);
+
+    void Send_information_Image(int x_size, int y_size, int depth);
+
+    void Convolution_2D(int kernel_cols, int kernel_rows, int size_x, int size_y);
 
 
 private:
@@ -60,6 +68,7 @@ private:
 public:
     Brigthnes_Dialog *brightnes_dial;
     High_contrast_window *high_contrast_window;
+    Blur_Dialog *blur_dialog;
 };
 
 #endif // MAINWINDOW_H

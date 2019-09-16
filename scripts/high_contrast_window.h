@@ -16,12 +16,13 @@ public:
     ~High_contrast_window();
 
 signals:
-    void sendContrast_value(int threshold_value);
+    void sendContrast_value(int threshold_value, bool inverse);
 
 private slots:
 
     void on_horizontalSlider_valueChanged(int value);
     void on_spinBox_valueChanged(int arg1);
+    void on_checkBox_clicked();
 
 private:
     Ui::High_contrast_window *ui;
